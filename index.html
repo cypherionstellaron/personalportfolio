@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#171b3d">
+    <title>Mac David Escuro | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Dark is the default. A saved choice is applied before first paint.
+        try {
+            var saved = localStorage.getItem('portfolio-theme');
+            if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+        } catch (e) { }
+    </script>
+    <script src="interactives.js" defer></script>
+</head>
+
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-user" viewBox="0 0 16 16"><path d="M5 1h6v2h1v5h-1v1H5V8H4V3h1zM2 11h12v4H2z" /></symbol>
+        <symbol id="i-bolt" viewBox="0 0 16 16"><path d="M9 1h3v4H9v2h3v2H9v2H7v3H4V9h3V7H4V5h3V3h2z" /></symbol>
+        <symbol id="i-code" viewBox="0 0 16 16"><path d="M6 3H4v2H2v2H1v2h1v2h2v2h2v-2H4v-2H3V7h1V5h2zM10 3h2v2h2v2h1v2h-1v2h-2v2h-2v-2h2v-2h1V7h-1V5h-2z" /></symbol>
+        <symbol id="i-cols" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 2h14v12H1zM4 5v6h2V5zm4 0v6h2V5z" /></symbol>
+        <symbol id="i-chip" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 1h6v2h2v2h2v6h-2v2h-2v2H5v-2H3v-2H1V5h2V3h2zM6 5v6h4V5z" /></symbol>
+        <symbol id="i-trophy" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 1h8v2h3v4h-3v1h-1v2H9v2h2v2H5v-2h2v-2H5V8H4V7H1V3h3zM2 4v2h2V4zm10 0v2h2V4z" /></symbol>
+        <symbol id="i-chevron" viewBox="0 0 16 16"><path d="M2 4h2v2h2v2h4V6h2V4h2v2h-2v2h-2v2H6V8H4V6H2zM6 10h4v2H6z" /></symbol>
+    </svg>
+
+    <header id="top-bar">
+        <div class="bar">
+            <div id="brand-mark" role="button" tabindex="0" aria-label="MACMS, back to top">
+                <svg class="brand-logo px" viewBox="0 0 16 16" aria-hidden="true">
+                    <rect x="1" y="2" width="2" height="12" />
+                    <rect x="13" y="2" width="2" height="12" />
+                    <rect x="3" y="2" width="2" height="4" />
+                    <rect x="11" y="2" width="2" height="4" />
+                    <rect x="5" y="6" width="2" height="4" />
+                    <rect x="9" y="6" width="2" height="4" />
+                    <rect x="7" y="8" width="2" height="2" />
+                </svg>
+                <span class="brand-name">MACMS</span>
+            </div>
+
+            <div id="site-menu">
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-list"
+                    aria-label="Open menu">
+                    <svg class="px" viewBox="0 0 16 16" aria-hidden="true">
+                        <rect x="2" y="3" width="12" height="2" />
+                        <rect x="2" y="7" width="12" height="2" />
+                        <rect x="2" y="11" width="12" height="2" />
+                    </svg>
+                    <span>Menu</span>
+                </button>
+                <nav id="menu-list" aria-label="Page sections">
+                    <button class="nav-btn" type="button" data-target="hero">Home</button>
+                    <button class="nav-btn" type="button" data-target="about">About</button>
+                    <button class="nav-btn" type="button" data-target="skills">Skills</button>
+                    <button class="nav-btn" type="button" data-target="academic">Education</button>
+                    <button class="nav-btn" type="button" data-target="projects">Projects</button>
+                    <button class="nav-btn" type="button" data-target="graphics">Graphics</button>
+                    <button class="nav-btn" type="button" data-target="contact">Contact</button>
+                </nav>
+            </div>
+
+            <div id="theme-toggle" role="group" aria-label="Appearance">
+                <button class="theme-opt" type="button" data-theme="dark" aria-label="Dark mode" aria-pressed="true">
+                    <svg class="px" viewBox="0 0 16 16" aria-hidden="true">
+                        <rect x="5" y="1" width="7" height="2" />
+                        <rect x="3" y="3" width="3" height="2" />
+                        <rect x="2" y="5" width="5" height="6" />
+                        <rect x="3" y="11" width="3" height="2" />
+                        <rect x="5" y="13" width="7" height="2" />
+                    </svg>
+                </button>
+                <button class="theme-opt" type="button" data-theme="light" aria-label="Light mode" aria-pressed="false">
+                    <svg class="px" viewBox="0 0 16 16" aria-hidden="true">
+                        <rect x="4" y="0" width="8" height="2" />
+                        <rect x="2" y="2" width="12" height="2" />
+                        <rect x="0" y="4" width="16" height="8" />
+                        <rect x="2" y="12" width="12" height="2" />
+                        <rect x="4" y="14" width="8" height="2" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="intro" aria-hidden="true">
+        <div class="intro-grid" id="intro-grid"></div>
+        <svg class="intro-logo px" viewBox="0 0 16 16">
+            <rect x="1" y="2" width="2" height="12" />
+            <rect x="13" y="2" width="2" height="12" />
+            <rect x="3" y="2" width="2" height="4" />
+            <rect x="11" y="2" width="2" height="4" />
+            <rect x="5" y="6" width="2" height="4" />
+            <rect x="9" y="6" width="2" height="4" />
+            <rect x="7" y="8" width="2" height="2" />
+        </svg>
+    </div>
+
+    <main>
+        <section id="hero">
+            <div id="hero-bg" aria-hidden="true">
+                <div id="stars-container"></div>
+                <div id="hero-scene"></div>
+
+                <svg id="hero-sun" viewBox="0 0 16 16" width="72" height="72">
+                    <rect x="4" y="0" width="8" height="2" />
+                    <rect x="2" y="2" width="12" height="2" />
+                    <rect x="0" y="4" width="16" height="8" />
+                    <rect x="2" y="12" width="12" height="2" />
+                    <rect x="4" y="14" width="8" height="2" />
+                </svg>
+
+                <svg id="hero-moon" viewBox="0 0 16 16" width="84" height="84">
+                    <rect x="4" y="0" width="8" height="2" />
+                    <rect x="2" y="2" width="12" height="2" />
+                    <rect x="0" y="4" width="16" height="8" />
+                    <rect x="2" y="12" width="12" height="2" />
+                    <rect x="4" y="14" width="8" height="2" />
+                    <rect class="moon-crater" x="5" y="4" width="2" height="2" />
+                    <rect class="moon-crater" x="9" y="7" width="3" height="2" />
+                    <rect class="moon-crater" x="4" y="9" width="2" height="2" />
+                </svg>
+
+                <svg class="cloud" viewBox="0 0 24 10" width="120" height="50" style="top:12%; left:8%;">
+                    <rect x="4" y="4" width="16" height="4" />
+                    <rect x="8" y="2" width="8" height="2" />
+                    <rect x="0" y="6" width="24" height="2" />
+                </svg>
+                <svg class="cloud" viewBox="0 0 24 10" width="90" height="38"
+                    style="top:28%; left:65%; animation-duration:55s;">
+                    <rect x="4" y="4" width="16" height="4" />
+                    <rect x="8" y="2" width="8" height="2" />
+                    <rect x="0" y="6" width="24" height="2" />
+                </svg>
+
+                <div class="ufo-track" style="top:18%;">
+                    <svg id="hero-ufo" viewBox="0 0 16 16" width="56" height="56">
+                        <rect x="6" y="1" width="4" height="2" />
+                        <rect x="4" y="3" width="8" height="2" />
+                        <rect x="1" y="7" width="14" height="3" />
+                        <rect x="3" y="10" width="10" height="2" />
+                        <rect class="ufo-light" x="2" y="10" width="2" height="2" />
+                        <rect class="ufo-light" x="7" y="10" width="2" height="2" />
+                        <rect class="ufo-light" x="12" y="10" width="2" height="2" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-top">
+                    <div class="photo-slot">
+                        <div id="pixel-avatar" role="img" aria-label="Pixel art avatar of Mac"></div>
+                    </div>
+
+                    <div class="hero-info">
+                        <div class="hero-heading">
+                            <h1 class="hero-name">MAC DAVID</h1>
+                            <p class="hero-role">
+                                <span class="sr-only">Student, yearner, yapper, gamer, builder, designer, noobie</span>
+                                <span id="role-word" aria-hidden="true">Student</span>
+                            </p>
+                        </div>
+
+                        <div class="grouped hero-card">
+                            <dl class="hc-facts">
+                                <div class="hc-fact hc-wide"><dt>Program</dt><dd>BS Information Technology</dd></div>
+                                <div class="hc-fact"><dt>Year</dt><dd>Second year</dd></div>
+                                <div class="hc-fact"><dt>School</dt><dd>Cagayan State University</dd></div>
+                            </dl>
+
+                            <div class="hc-stats">
+                            <div class="stat">
+                                <div class="stat-head"><span class="stat-label">College</span><span class="stat-val">50%</span></div>
+                                <div class="meter blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="College"><span style="--value:50%"></span></div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-head"><span class="stat-label">Hungry</span><span class="stat-val">90%</span></div>
+                                <div class="meter orange" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-label="Hungry"><span style="--value:90%"></span></div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-head"><span class="stat-label">Missing you</span><span class="stat-val">100%</span></div>
+                                <div class="meter mix" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="Missing you"><span style="--value:100%"></span></div>
+                            </div>
+                            </div>
+
+                            <div class="music-row">
+                                <audio id="favorite-song" src="audio/celestial.mp3" preload="none" loop></audio>
+                                <button class="music-btn" id="music-toggle" type="button" aria-label="Play favorite song">
+                                    <svg class="icon-play px" viewBox="0 0 16 16" aria-hidden="true">
+                                        <rect x="4" y="2" width="2" height="12" />
+                                        <rect x="6" y="4" width="2" height="2" />
+                                        <rect x="8" y="6" width="2" height="2" />
+                                        <rect x="8" y="8" width="2" height="2" />
+                                        <rect x="6" y="10" width="2" height="2" />
+                                    </svg>
+                                    <svg class="icon-pause px" viewBox="0 0 16 16" aria-hidden="true">
+                                        <rect x="4" y="2" width="3" height="12" />
+                                        <rect x="9" y="2" width="3" height="12" />
+                                    </svg>
+                                </button>
+                                <div class="music-text">
+                                    <span class="music-title">Celestial</span>
+                                    <span class="music-sub">Ed Sheeran · Favorite song</span>
+                                </div>
+                                <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2>ABOUT ME</h2>
+                    <p>Who I am, where I study, and what I'm learning right now.</p>
+                </div>
+
+                <div class="about-grid">
+                    <article class="card prose">
+                        <h3>Introduction</h3>
+                        <p>Hello! I'm a second-year Bachelor of Science in Information Technology student. I'm still a
+                            beginner when it comes to programming, but I enjoy learning new things even when they get
+                            difficult. I started my programming journey with C#, which helped me understand the basics
+                            of coding, and I'm currently learning Python to improve my skills and explore more
+                            possibilities in programming.</p>
+                        <p>Outside academics, I enjoy playing Minecraft and other random brain-rot games (HAHAHA). I may
+                            still have a lot to learn, but I'm always willing to explore, make mistakes, and improve
+                            along the way. This portfolio is a collection of my learning experiences, projects, and
+                            progress as an IT student.</p>
+                    </article>
+
+                    <article class="grouped info-card" aria-label="Student info card">
+                        <header class="id-band">
+                            <span class="id-hole" aria-hidden="true"></span>
+                            <div class="id-org">
+                                <span class="id-org-name">Cagayan State University</span>
+                                <span class="id-org-sub">Carig Campus</span>
+                            </div>
+                            <span class="id-holo" aria-hidden="true"></span>
+                        </header>
+
+                        <div class="id-main">
+                            <div class="id-photo" aria-hidden="true">
+                                <svg id="id-photo-svg" viewBox="1 -2 16 19" preserveAspectRatio="xMidYMax slice"></svg>
+                            </div>
+                            <dl class="id-fields">
+                                <div class="id-field id-wide"><dt>Name</dt><dd class="id-name">Escuro, Mac David L.</dd></div>
+                                <div class="id-field id-wide"><dt>Program</dt><dd>Bachelor of Science in Information Technology</dd></div>
+                                <div class="id-field"><dt>Year level</dt><dd>Second year</dd></div>
+                                <div class="id-field"><dt>Status</dt><dd><span class="chip accent">Currently pursuing</span></dd></div>
+                            </dl>
+                        </div>
+
+                        <dl class="id-links">
+                            <div class="id-field"><dt>GitHub</dt><dd><a href="https://github.com/cypherionstellaron" target="_blank" rel="noopener">github.com/cypherionstellaron</a></dd></div>
+                            <div class="id-field"><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/mdescuro16/" target="_blank" rel="noopener">linkedin.com/in/mdescuro16</a></dd></div>
+                        </dl>
+
+                        <footer class="id-foot" aria-hidden="true">
+                            <span class="id-barcode"></span>
+                            <span class="id-valid">2025 – Present</span>
+                        </footer>
+                    </article>
+                </div>
+
+                <div class="grouped tag-rows">
+                    <div class="row">
+                        <span class="row-label">Interests</span>
+                        <div class="chip-list">
+                            <span class="chip">Gaming</span>
+                            <span class="chip">Eating</span>
+                            <span class="chip">Learning to code, even when it’s hard</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="row-label">Core foundation</span>
+                        <div class="chip-list"><span class="chip accent">C#</span></div>
+                    </div>
+                    <div class="row">
+                        <span class="row-label">Current exploration</span>
+                        <div class="chip-list"><span class="chip accent">Python</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2>TECHNICAL SKILLS</h2>
+                    <p>The languages, specialties and tools I use to design and build. Hover a skill for a short note on what it is.</p>
+                </div>
+
+                <div class="grouped skills-list">
+                    <div class="skill-row">
+                        <div class="skill-name">
+                            <span class="skill-icon"><svg class="px" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-code" /></svg></span>
+                            <h3>Frontend development</h3>
+                        </div>
+                        <div class="chip-list"><span class="chip" title="The structure of every page: headings, text, images, links and forms.">HTML5</span><span class="chip" title="The styling layer: colors, spacing, layout and how a page adapts to different screens.">CSS</span><span class="chip" title="Makes a page interactive, like menus, animations and buttons that respond.">JavaScript</span></div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-name">
+                            <span class="skill-icon"><svg class="px" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-bolt" /></svg></span>
+                            <h3>Specialization</h3>
+                        </div>
+                        <div class="chip-list"><span class="chip" title="Designing interfaces that are clear and easy to use, from layout to how people move through them.">UI/UX</span><span class="chip" title="Creating visuals like posters and graphics that get an idea across at a glance.">Graphic design</span><span class="chip" title="Arranging text and images so a page feels balanced and easy to read.">Layout artist</span></div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-name">
+                            <span class="skill-icon"><svg class="px" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-cols" /></svg></span>
+                            <h3>Languages being learned</h3>
+                        </div>
+                        <div class="chip-list"><span class="chip" title="My core foundation, where I'm learning programming logic and the basics of object-oriented code.">C#</span><span class="chip" title="The language I'm exploring right now, known for its clean, readable syntax.">Python</span></div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-name">
+                            <span class="skill-icon"><svg class="px" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-chip" /></svg></span>
+                            <h3>Development tools</h3>
+                        </div>
+                        <div class="chip-list"><span class="chip" title="Quick graphic and layout design.">Canva</span><span class="chip" title="Designing and prototyping interfaces before they're built.">Figma</span><span class="chip" title="My main editor for writing HTML, CSS and JavaScript.">VS Code</span><span class="chip" title="A full IDE I use for C# projects.">Visual Studio</span><span class="chip" title="A JetBrains IDE for C# and .NET work.">Rider</span><span class="chip" title="An AI assistant for brainstorming, debugging and learning.">Claude</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="academic" class="section">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2>ACADEMIC MILESTONES &amp; ACHIEVEMENTS</h2>
+                    <p>My current studies and the badges I've unlocked so far.</p>
+                </div>
+
+                <div class="academic-grid">
+                    <article class="card edu-card">
+                        <div class="tag-line">
+                            <span class="chip">2025 – Present</span>
+                            <span class="chip accent">Currently pursuing, second year</span>
+                        </div>
+                        <h3>Cagayan State University – Carig Campus</h3>
+                        <p class="edu-program">Bachelor of Science in Information Technology</p>
+                        <p class="muted">A program covering programming, databases, networking, and web and systems
+                            development, focused on building and maintaining software solutions.</p>
+                        <p class="muted">Carig Sur, Tuguegarao City</p>
+                    </article>
+
+                    <div class="grouped">
+                        <div class="list-title">Achievements unlocked</div>
+                        <div class="row ach-row">
+                            <svg class="px ach-icon" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-trophy" /></svg>
+                            <div>
+                                <div class="ach-title">Civil Service Examination – Professional Level</div>
+                                <div class="muted">Issued by Civil Service Commission, March 2025</div>
+                            </div>
+                        </div>
+                        <div class="row ach-row">
+                            <svg class="px ach-icon blue" aria-hidden="true" viewBox="0 0 16 16"><use href="#i-trophy" /></svg>
+                            <div>
+                                <div class="ach-title">Foundational C# with Microsoft</div>
+                                <div class="muted">Issued by freeCodeCamp and Microsoft, October 2026</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2>PROJECTS DONE</h2>
+                    <p>Things I've built while learning. Select a project to read more.</p>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card"
+                        data-features="Upload and organize reviewers by subject|Browse and download shared study materials|Simple, distraction-free interface built for students"
+                        data-story="Built out of a need to make exam prep easier for classmates. RevShare started as a small link-sharing page and grew into a lightweight hub where students trade reviewers instead of losing them in group chats.">
+                        <div class="project-thumb"><img src="images/revshare.png" alt="RevShare screenshot"></div>
+                        <div class="project-body">
+                            <h3 class="project-title">RevShare</h3>
+                            <p class="project-desc">RevShare is a web-based platform that is used to share my reviewers so that other students can access and use it.</p>
+                            <div class="chip-list"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+                            <div class="project-actions">
+                                <button class="pixel-btn project-details" type="button">Details</button>
+                                <button class="pixel-btn orange project-link" type="button" data-url="https://cypherionstellaron.github.io/reviewer.github.io/">View project</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card"
+                        data-features="Retro pixel-art aesthetic with a clean, minimal layout|Light and dark themes|Built fully with HTML, CSS, and JavaScript"
+                        data-story="This portfolio itself, designed to feel like leveling up a character, with each section unlocking a new part of my journey as a student and builder.">
+                        <div class="project-thumb"><img src="images/portfolio.png" alt="Portfolio screenshot"></div>
+                        <div class="project-body">
+                            <h3 class="project-title">Portfolio</h3>
+                            <p class="project-desc">A personal portfolio website I created to showcase my hobbies, skills, projects, and experiences.</p>
+                            <div class="chip-list"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+                            <div class="project-actions">
+                                <button class="pixel-btn project-details" type="button">Details</button>
+                                <button class="pixel-btn orange project-link" type="button" data-url="https://cypherionstellaron.github.io/personalportfolio/">View project</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="graphics" class="section">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2>GRAPHIC MATERIALS</h2>
+                    <p>A few of the graphic designs I've made.</p>
+                </div>
+
+                <div class="graphics-wall">
+                    <figure class="gallery-item">
+                        <div class="gallery-media">
+                            <img class="gallery-img" src="images/graphics/design-01.png" alt="Graphic design piece 1">
+                            <div class="gallery-fallback">DESIGN 01</div>
+                        </div>
+                        <figcaption>Design 01</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <div class="gallery-media">
+                            <img class="gallery-img" src="images/graphics/design-02.png" alt="Graphic design piece 2">
+                            <div class="gallery-fallback">DESIGN 02</div>
+                        </div>
+                        <figcaption>Design 02</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <div class="gallery-media">
+                            <img class="gallery-img" src="images/graphics/design-03.png" alt="Graphic design piece 3">
+                            <div class="gallery-fallback">DESIGN 03</div>
+                        </div>
+                        <figcaption>Design 03</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <canvas id="pixel-canvas" aria-hidden="true"></canvas>
+            <div class="wrap contact-inner">
+                <h2>LET'S CONNECT</h2>
+                <p class="contact-sub">maclauiganescuro@gmail.com</p>
+                <div class="contact-links">
+                    <button class="pixel-btn" id="email-btn" type="button" data-mailto="maclauiganescuro@gmail.com">Email me</button>
+                    <button class="pixel-btn orange" type="button" data-url="https://github.com/cypherionstellaron">GitHub</button>
+                    <button class="pixel-btn" type="button" data-url="https://www.linkedin.com/in/mdescuro16/">LinkedIn</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>© <span id="year"></span> Mac David L. Escuro. Built with a lot of pixels.</footer>
+
+    <div id="cursor" popover="manual" aria-hidden="true">
+        <img class="cursor-img cursor-pointer" src="cursors/pointer.svg" alt="">
+        <img class="cursor-img cursor-target" src="cursors/target.svg" alt="">
+    </div>
+
+    <dialog id="project-sheet" aria-labelledby="sheet-title">
+        <div class="sheet-bar">
+            <span class="sheet-spacer" aria-hidden="true"></span>
+            <h3 id="sheet-title"></h3>
+            <button class="text-btn" id="sheet-close" type="button">Done</button>
+        </div>
+        <div class="sheet-body">
+            <div class="sheet-thumb"><img id="sheet-img" src="" alt=""></div>
+            <p id="sheet-desc"></p>
+            <h4>Features</h4>
+            <ul id="sheet-features"></ul>
+            <h4>The story</h4>
+            <p id="sheet-story"></p>
+        </div>
+    </dialog>
+</body>
+
+</html>
